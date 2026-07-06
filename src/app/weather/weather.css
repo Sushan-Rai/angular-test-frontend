@@ -1,0 +1,66 @@
+.weather-container {
+  font-family: Arial, sans-serif;
+  margin: 20px auto;
+  max-width: 800px;
+  padding: 15px;
+}
+
+.controls {
+  margin: 15px 0;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+button {
+  padding: 6px 12px;
+  cursor: pointer;
+}
+
+.count-label {
+  font-weight: bold;
+}
+
+.status-message {
+  padding: 10px;
+  font-style: italic;
+}
+
+.error-message {
+  padding: 15px;
+  background-color: #f8d7da;
+  color: #721c24;
+  border: 1px solid #f5c6cb;
+  border-radius: 4px;
+  margin: 10px 0;
+}
+
+.error-message button {
+  margin-top: 10px;
+}
+
+.forecast-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 15px;
+}
+
+.forecast-table th,
+.forecast-table td {
+  border: 1px solid #ccc;
+  padding: 8px 12px;
+  text-align: left;
+}
+
+.forecast-table th {
+  background-color: #f2f2f2;
+}
+
+.hot-row {
+  background-color: #ffcccc !important;
+}
+
+.empty-message {
+  text-align: center;
+  font-style: italic;
+}

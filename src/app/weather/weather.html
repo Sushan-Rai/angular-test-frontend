@@ -1,0 +1,44 @@
+<div class="weather-container">
+  <h2>Weather Forecast</h2>
+
+  <div class="controls">
+    <button (click)="refresh()" [disabled]="loading()">Refresh</button>
+    @if (forecasts().length > 0 && !loading()) {
+      <span class="count-label">Total Forecast Records: {{ totalCount() }}</span>
+    }
+  </div>
+
+  @if (loading()) {
+    <div class="status-message">Loading...</div>
+  } @else if (errorMsg()) {
+    <div class="error-message">
+      <p>{{ errorMsg() }}</p>
+      <button (click)="refresh()">Retry</button>
+    </div>
+  } @else {
+    <table class="forecast-table">
+      <thead>
+        <tr>
+          <th>Date</th>
+          <th>Temperature (C)</th>
+          <th>Temperature (F)</th>
+          <th>Summary</th>
+        </tr>
+      </thead>
+      <tbody>
+        @for (forecast of forecasts(); track forecast.date) {
+          <tr [class.hot-row]="forecast.temperatureC > 30">
+            <td>{{ forecast.date | date:'yyyy-MM-dd' }}</td>
+            <td>{{ forecast.temperatureC }}</td>
+            <td>{{ forecast.temperatureF }}</td>
+            <td>{{ forecast.summary }}</td>
+          </tr>
+        } @empty {
+          <tr>
+            <td colspan="4" class="empty-message">No data available</td>
+          </tr>
+        }
+      </tbody>
+    </table>
+  }
+</div>
